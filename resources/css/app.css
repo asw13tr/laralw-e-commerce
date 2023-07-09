@@ -1,0 +1,10 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.link-in-table{
+    text-decoration: underline;
+    text-underline-offset: 0.25em!important;
+    --bs-link-underline-opacity: 0.5;
+
+}

@@ -1,0 +1,35 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+return new class extends Migration
+{
+    /**
+     * Run the migrations.
+     */
+    public function up(): void
+    {
+        Schema::create('menus', function (Blueprint $table) {
+            $table->id();
+            $table->unsignedInteger('parent')->default(0);
+            $table->string('title', 255);
+            $table->string('slug', 255);
+            $table->enum('type', ['menu', 'item'])->default('item');
+            $table->string('description', 255);
+            $table->string('label', 255);
+            $table->string('to', 255)->default('#');
+            $table->json('extra')->nullable();
+            $table->timestamps();
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     */
+    public function down(): void
+    {
+        Schema::dropIfExists('menus');
+    }
+};
