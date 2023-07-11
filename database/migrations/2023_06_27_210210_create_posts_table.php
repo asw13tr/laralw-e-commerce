@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('description', 255)->nullable();
             $table->string('keywords', 255)->nullable();
             $table->unsignedInteger('parent')->default(0);
+            $table->unsignedInteger('author_id')->default(0);
             $table->string('cover', 255)->nullable();
             $table->longText('content')->nullable();
             $table->enum('type', ['post', 'page'])->default('post');

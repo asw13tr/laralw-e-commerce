@@ -2,9 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+*{
+    border-radius: 0px !important;
+}
+
 .link-in-table{
     text-decoration: underline;
     text-underline-offset: 0.25em!important;
     --bs-link-underline-opacity: 0.5;
-
 }

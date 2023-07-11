@@ -21,7 +21,7 @@ Route::get('/', \App\Http\Livewire\Main::class);
 Route::prefix('/panel')->name('panel.')->group(function(){
 
     // MAİN
-    Route::get('/', \App\Http\Livewire\Admin\Main::class);
+    Route::get('/', \App\Http\Livewire\Admin\Main::class)->name('index');
 
     // USERS
     Route::prefix('user')->name('user.')->group(function(){
@@ -46,6 +46,22 @@ Route::prefix('/panel')->name('panel.')->group(function(){
         Route::get('/categories', \App\Http\Livewire\Admin\Product\Category::class)->name('categories');
 
         Route::get('/', \App\Http\Livewire\Admin\Product\Index::class)->name('index');
+//        Route::get('/{id}/edit', \App\Http\Livewire\Admin\Product\Edit::class)->name('edit');
+//        Route::get('/{id}', \App\Http\Livewire\Admin\Product\Detail::class)->name('detail');
+    });
+
+    // PAGES
+    Route::prefix('page')->name('page.')->group(function(){
+        Route::get('/', \App\Http\Livewire\Admin\Page\Index::class)->name('index');
+        Route::get('/create', \App\Http\Livewire\Admin\Page\Create::class)->name('create');
+        Route::get('/{id}/edit', \App\Http\Livewire\Admin\Page\Edit::class)->name('edit');
+    });
+
+    // POSTS
+    Route::prefix('post')->name('post.')->group(function(){
+//        Route::get('/categories', \App\Http\Livewire\Admin\Product\Category::class)->name('categories');
+
+        Route::get('/', \App\Http\Livewire\Admin\Post\Index::class)->name('index');
 //        Route::get('/{id}/edit', \App\Http\Livewire\Admin\Product\Edit::class)->name('edit');
 //        Route::get('/{id}', \App\Http\Livewire\Admin\Product\Detail::class)->name('detail');
     });
