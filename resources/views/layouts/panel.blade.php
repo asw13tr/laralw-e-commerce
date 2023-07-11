@@ -33,14 +33,20 @@
     <div class="p-3 flex-fill bg-white">
         <div class="mb-3 pb-3 border-bottom d-flex justify-content-between align-items-end">
             <h1 class="h5 m-0 p-0"><i class="bi bi-{{ $GLOBALS['META_VALUES']['icon'] ?? 'chevron-right' }}"></i> {{ $GLOBALS['META_VALUES']['title'] ?? 'Yönetici Paneli' }}</h1>
-            @hasSection('dropdownActions')
-                <div class="dropdown">
-                    <button class="btn btn-light btn-sm rounded-square dropdown-toggle" data-bs-toggle="dropdown"><em class="bi bi-three-dots-vertical"></em></button>
-                    <ul class="dropdown-menu">
-                        @yield('dropdownActions')
-                    </ul>
-                </div>
-            @endif
+            <div class="flex-fill d-flex justify-content-end">
+                @hasSection('buttonActions')
+                    @yield('buttonActions')
+                @endif
+
+                @hasSection('dropdownActions')
+                    <div class="dropdown">
+                        <button class="btn btn-light btn-sm rounded-square dropdown-toggle" data-bs-toggle="dropdown"><em class="bi bi-three-dots-vertical"></em></button>
+                        <ul class="dropdown-menu">
+                            @yield('dropdownActions')
+                        </ul>
+                    </div>
+                @endif
+            </div>
         </div>
 
         <div>

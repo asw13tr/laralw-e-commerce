@@ -35,6 +35,9 @@
             <label for="" class="form-label">Kapak Fotoğrafı</label>
             <input wire:model="cover" type="file" class="form-control" />
             @include('livewire.admin.components.input-error', ['key'=>'cover'])
+            @isset($page['cover'])
+                <img src="{{ url('uploads/'.  $page['cover']) }}" alt="" class="mt-2 img-fluid" />
+            @endisset
         </div>
 
         <div class="mb-3">
@@ -65,9 +68,18 @@
             @include('livewire.admin.components.input-error', ['key'=>'page.status'])
         </div>
 
-        <div class="mb-3 pt-3 border-top d-flex justify-content-end">
+        <div class="mb-3 pt-3 border-top d-flex justify-content-start">
             @isset($page['id'])
                 <button class="btn btn-success"><em class="bi bi-check-square"></em> Güncelle</button>
+
+                <a href="/" onclick="showModalForDelete({
+                    title:  'Sayfa Silinecek',
+                    text:   '{{ $page['title'] }} sayfasını silmek üzeresiniz. Bu işlem bir daha geri alınamaz.',
+                    emit:   {
+                        name:   'deletePost',
+                        params: {{ $page['id']  }}
+                    }
+                }, event)" class="btn btn-danger ms-2"><em class="bi bi-x-square"></em> Sil</a>
             @else
                 <button class="btn btn-primary"><em class="bi bi-plus-square"></em> Oluştur</button>
             @endisset
@@ -77,3 +89,7 @@
 
     </div>
 </form>
+
+@section('buttonActions')
+    <a href="{{ url()->route('panel.page.create')  }}" class="btn btn-primary btn-sm"><i class="bi bi-plus-circle"></i> Yeni Sayfa</a>
+@endsection

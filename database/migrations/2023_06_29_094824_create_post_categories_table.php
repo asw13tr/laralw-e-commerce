@@ -18,7 +18,6 @@ return new class extends Migration
             $table->string('description')->default('');
             $table->tinyInteger('sort_no')->default(0);
             $table->boolean('status')->default(true);
-            $table->boolean('showed')->default(true);
             $table->timestamps();
         });
     }

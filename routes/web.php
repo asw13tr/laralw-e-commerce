@@ -59,11 +59,11 @@ Route::prefix('/panel')->name('panel.')->group(function(){
 
     // POSTS
     Route::prefix('post')->name('post.')->group(function(){
-//        Route::get('/categories', \App\Http\Livewire\Admin\Product\Category::class)->name('categories');
+        Route::get('/categories', \App\Http\Livewire\Admin\Post\Category::class)->name('categories');
 
         Route::get('/', \App\Http\Livewire\Admin\Post\Index::class)->name('index');
-//        Route::get('/{id}/edit', \App\Http\Livewire\Admin\Product\Edit::class)->name('edit');
-//        Route::get('/{id}', \App\Http\Livewire\Admin\Product\Detail::class)->name('detail');
+        Route::get('/create', \App\Http\Livewire\Admin\Post\Create::class)->name('create');
+        Route::get('/{id}/edit', \App\Http\Livewire\Admin\Post\Edit::class)->name('edit');
     });
 
 });

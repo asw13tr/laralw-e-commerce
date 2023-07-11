@@ -24,7 +24,10 @@ function showToast(opt = {message:''}){
     Toast.fire()
 }
 
-function showModalForDelete(data={}){
+function showModalForDelete(data={}, event=null){
+    if(event){
+        event.preventDefault();
+    }
     Swal.fire({
         title: data.title || '',
         html: ((data.text || data.body) || data.html) || '',

@@ -22,7 +22,6 @@ class FileUploader{
     public static function delete($file=null){
         if($file){
             $path = public_path('uploads/'.$file);
-//            dd($path);
             if(file_exists($path)){
                 File::delete($path);
             }

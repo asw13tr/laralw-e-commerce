@@ -15,6 +15,8 @@ class Edit extends Component{
 
     use WithFileUploads;
 
+    protected $listeners = ['deletePost' => 'deletePost'];
+
     public $cover = null;
     public array $page = [
         'title' => '',
@@ -43,6 +45,12 @@ class Edit extends Component{
         }else{
             return $this->page['cover'];
         }
+    }
+
+    public function deletePost(Post $post){
+        $PageIndexClass = new \App\Http\Livewire\Admin\Page\Index();
+        $PageIndexClass->deletePost($post);
+        return redirect()->route('panel.page.index');
     }
 
     // UPLOAD A PAGE
