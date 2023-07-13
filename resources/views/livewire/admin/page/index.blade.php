@@ -3,7 +3,7 @@
         <thead>
         <tr>
             <th width="70">#</th>
-            <th><input type="search" class="form-control form-control-sm" wire:model="searchedValue" placeholder="Sayfa adınfa arayabilirsiniz."></th>
+            <th><input type="search" class="form-control form-control-sm" wire:model="searchedValue" placeholder="Sayfa adında arayabilirsiniz."></th>
             <th>Anahtar Kelimeler</th>
             <th>Yazar</th>
             <th width="174">Tarihler</th>

@@ -24,7 +24,7 @@
 </head>
 <body style="background: rgba(0,0,0,0.075); padding-top:55px;" >
 @livewire('admin.components.navbar')
-<main class="d-flex flex-nowrap w-100 h-100">
+<main class="d-flex flex-nowrap w-100" style="min-height:100% ">
 
     <div class="d-flex flex-column flex-shrink-0 p-3 text-bg-dark" style="width: 230px; ">
         @include('livewire.admin.components.sidebar')

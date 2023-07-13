@@ -1,3 +1,1 @@
-<div>
-    {{-- Nothing in the world is as soft and yielding as water. --}}
-</div>
+@include('livewire.admin.post.form')

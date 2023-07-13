@@ -5,6 +5,9 @@
 *{
     border-radius: 0px !important;
 }
+*:focus{
+    box-shadow: none !important;
+}
 
 .link-in-table{
     text-decoration: underline;
