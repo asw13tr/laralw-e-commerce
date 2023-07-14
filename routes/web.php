@@ -46,7 +46,8 @@ Route::prefix('/panel')->name('panel.')->group(function(){
         Route::get('/categories', \App\Http\Livewire\Admin\Product\Category::class)->name('categories');
 
         Route::get('/', \App\Http\Livewire\Admin\Product\Index::class)->name('index');
-//        Route::get('/{id}/edit', \App\Http\Livewire\Admin\Product\Edit::class)->name('edit');
+        Route::get('/create', \App\Http\Livewire\Admin\Product\Create::class)->name('create');
+        Route::get('/{id}/edit', \App\Http\Livewire\Admin\Product\Edit::class)->name('edit');
 //        Route::get('/{id}', \App\Http\Livewire\Admin\Product\Detail::class)->name('detail');
     });
 

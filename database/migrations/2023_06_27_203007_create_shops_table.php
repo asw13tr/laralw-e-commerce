@@ -27,6 +27,7 @@ return new class extends Migration
             $table->unsignedMediumInteger('postcode');
             $table->string('address', 256);
             $table->unsignedSmallInteger('category_id');
+            $table->boolean('status')->default(true);
             $table->timestamps();
         });
     }

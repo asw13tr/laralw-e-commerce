@@ -10,10 +10,22 @@ class Index extends Component{
 
     public string $searchedValue = '';
     private int $limitPerPage = 25;
+    private $store;
+    protected $listeners = [
+        'deleteProduct' => 'deleteProduct'
+    ];
+
+    public function boot(){
+         $this->store = new Store();
+    }
 
     // INIT
     public function mount(){
         MetaValues::set('Ürün Listesi', 'basket');
+    }
+
+    public function deleteProduct(Product $product){
+        $this->store->deleteProduct($product);
     }
 
     // GET PRODUCTS FROM MODEL

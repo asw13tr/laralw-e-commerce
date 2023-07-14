@@ -26,18 +26,26 @@ return new class extends Migration
          */
         Schema::create('products', function (Blueprint $table) {
             $table->id();
+            $table->string('sno', 64)->nullable();
+            $table->string('barcode', 64)->nullable();
+            $table->string('sku', 64);
             $table->string('title', 255);
-            $table->string('slug',255);
             $table->string('description',512)->nullable();
             $table->string('keywords',512)->nullable();
             $table->text('content')->nullable();
-            $table->float('price')->default(0);
+            $table->decimal('price', 9,2)->default(0);
+            $table->unsignedInteger('discount_id')->default(0);
             $table->unsignedInteger('stock')->default(0);
-            $table->float('tax')->default(0.0);
-            $table->string('cover',128)->nullable();;
+            $table->decimal('tax', 5,2)->default(0.0);
+            $table->string('cover',128)->nullable();
             $table->boolean('status')->default(true);
-            $table->unsignedInteger('user_id');
+            $table->boolean('is_virtual')->default(false);
+            $table->boolean('free_delivery')->default(false);
+            $table->decimal('free_delivery_price', 5,2)->default(0);
+            $table->decimal('delivery_price', 5,2)->default(0);
+            $table->unsignedInteger('shop_id');
             $table->timestamps();
+            $table->softDeletes()->nullable();
         });
     }
 

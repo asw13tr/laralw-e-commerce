@@ -1,25 +1,32 @@
+<?php
+$sidebarNavItems = [
+    [ 'type'=>'item', 'title'=>'Başlangıç', 'url'=>route('panel.index'), 'icon'=>'speedometer2' ],
+    [ 'type'=>'divider' ],
+    [ 'type'=>'item', 'title'=>'Mağazalar',     'url'=>route('panel.shop.index'), 'icon'=>'shop' ],
+    [ 'type'=>'item', 'title'=>'Ürünler',       'url'=>route('panel.product.index'), 'icon'=>'basket' ],
+    [ 'type'=>'item', 'title'=>'Siparişler',    'url'=>route('panel.index'), 'icon'=>'cart4' ],
+    [ 'type'=>'item', 'title'=>'Kampanyalar',   'url'=>route('panel.index'), 'icon'=>'bag-heart' ],
+    [ 'type'=>'divider' ],
+    [ 'type'=>'item', 'title'=>'Sayfalar',      'url'=>route('panel.page.index'), 'icon'=>'text-left' ],
+    [ 'type'=>'item', 'title'=>'Yazılar',       'url'=>route('panel.post.index'), 'icon'=>'text-left' ],
+    [ 'type'=>'divider' ],
+    [ 'type'=>'item', 'title'=>'Kullanıcılar',  'url'=>route('panel.user.index'), 'icon'=>'people' ],
+    [ 'type'=>'item', 'title'=>'Navigasyon',    'url'=>route('panel.index'), 'icon'=>'signpost-2' ],
+    [ 'type'=>'item', 'title'=>'Medya',         'url'=>route('panel.index'), 'icon'=>'collection' ],
+    [ 'type'=>'divider' ],
+    [ 'type'=>'item', 'title'=>'Ayarlar', 'url'=>route('panel.index'), 'icon'=>'gear-fill' ],
+];
+?>
 <ul class="nav nav-pills flex-column mb-auto ">
 
-    <li class="nav-item"><a class="nav-link link-light" href="{{ route('panel.index') }}"><em class="bi bi-shop"></em> Başlangıç</a></li>
+    @foreach($sidebarNavItems as $item)
+        @if($item['type']=='divider')
+            <li class="nav-item py-3"><hr></li>
+        @elseif($item['type']=='item')
+            <li class="nav-item"><a class="nav-link link-light {{ ((route('panel.index')!=$item['url']) && strpos(url()->current(), $item['url'])>-1)? 'active' : ''  }}" href="{{ $item['url'] }}"><em class="bi bi-{{ $item['icon'] }}"></em> {{ $item['title'] }}</a></li>
+        @else
 
-    <li class="nav-item py-3"><hr></li>
+        @endif
+    @endforeach
 
-    <li class="nav-item"><a class="nav-link link-light" href="{{ route('panel.shop.index') }}"><em class="bi bi-shop"></em> Mağazalar</a></li>
-    <li class="nav-item"><a class="nav-link link-light" href="{{ route('panel.product.index') }}"><em class="bi bi-basket  "></em> Ürünler</a></li>
-    <li class="nav-item"><a class="nav-link link-light" href="#"><em class="bi bi-cart4"></em> Siparişler</a></li>
-
-    <li class="nav-item py-3"><hr></li>
-
-    <li class="nav-item"><a class="nav-link link-light" href="{{ route('panel.page.index') }}"><em class="bi bi-text-left"></em> Sayfalar</a></li>
-    <li class="nav-item"><a class="nav-link link-light" href="{{ route('panel.post.index') }}"><em class="bi bi-text-left"></em> Yazılar</a></li>
-
-    <li class="nav-item py-3"><hr></li>
-
-    <li class="nav-item"><a class="nav-link link-light" href="{{ route('panel.user.index') }}"><em class="bi bi-people"></em> Kullanıcılar</a></li>
-    <li class="nav-item"><a class="nav-link link-light" href="#"><em class="bi bi-signpost-2"></em> Navigasyon</a></li>
-    <li class="nav-item"><a class="nav-link link-light" href="#"><em class="bi bi-collection"></em> Medya</a></li>
-
-    <li class="nav-item py-3"><hr></li>
-
-    <li class="nav-item"><a class="nav-link link-light" href="#"><em class="bi bi-gear-fill"></em> Ayarlar</a></li>
 </ul>

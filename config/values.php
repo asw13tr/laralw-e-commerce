@@ -16,7 +16,15 @@ return [
         'none'  => 'Belirtilmedi',
         'male'  => 'Erkek',
         'female' => 'Kadın',
-    ]
+    ],
+
+    'currency' => [
+        'name'      => 'Türk Lirası',
+        'short'     => 'TL',
+        'symbol'    => '₺'
+    ],
+
+
 
 
 

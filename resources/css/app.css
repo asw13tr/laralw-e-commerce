@@ -19,3 +19,12 @@
 .table-md tbody tr td{
     padding: 5px;
 }
+
+.panel-form-list-items-box{
+    max-height: 370px;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+.panel-form-list-items-box li:hover{
+    background-color: rgba(0,0,0,0.05);
+}
